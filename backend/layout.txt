@@ -1,4 +1,4 @@
-project-root/
+backend/
 ├── src/
 │   ├── config/
 │   │   └── supabase.ts
@@ -6,17 +6,18 @@ project-root/
 │   │   ├── authController.ts
 │   │   └── postController.ts
 │   ├── middlewares/
-│   │   └── auth.ts
+│   │   └── authMiddleware.ts
 │   ├── models/
-│   │   ├── User.ts
-│   │   └── Post.ts
+│   │   ├── userModel.ts
+│   │   └── postModel.ts
 │   ├── routes/
-│   │   ├── auth.ts
-│   │   └── posts.ts
+│   │   ├── authRoutes.ts
+│   │   └── postRoutes.ts
 │   ├── schemas/
 │   │   ├── userSchema.ts
 │   │   └── postSchema.ts
-│   └── app.ts
+│   ├── app.ts
+│   └── index.ts
 ├── .env
 ├── package.json
 └── tsconfig.json
