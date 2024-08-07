@@ -10,6 +10,7 @@ This is the backend service for the Blogify Attack Capital project. It is built 
 - [Environment Variables](#environment-variables)
 - [Dependencies](#dependencies)
 - [Schema Design](#schema-design)
+- [API Endpoints](#api-endpoint-nodejs-express-ts)
 
 
 ## Getting Started
@@ -118,3 +119,89 @@ The following environment variables are required:
 ## Schema Design
 
 ![alt text](image.png)
+
+## API Endpoint (NodeJS/ Express/ TS)
+
+1. **POST /signup**
+   - **Description**: Registers a new user with their email and password.
+   - **Request Body**:
+     ```json
+     {
+       "email": "user@example.com",
+       "password": "securepassword"
+     }
+     ```
+   - **Response**:
+     - **201 Created**: User successfully registered.
+     - **400 Bad Request**: Invalid input or email already in use.
+
+2. **POST /login**
+   - **Description**: Authenticates a user and returns a session token.
+   - **Request Body**:
+     ```json
+     {
+       "email": "user@example.com",
+       "password": "securepassword"
+     }
+     ```
+   - **Response**:
+     - **200 OK**: Authentication successful, returns JWT token.
+     - **401 Unauthorized**: Invalid email or password.
+
+3. **POST /post**
+   - **Description**: Allows authenticated users to post a new article.
+   - **Request Headers**: 
+     ```json
+     {
+       "Authorization": "Bearer <token>"
+     }
+     ```
+   - **Request Body**:
+     ```json
+     {
+       "title": "My First Post",
+       "content": "This is the content of my first post."
+     }
+     ```
+   - **Response**:
+     - **201 Created**: Post successfully created.
+     - **401 Unauthorized**: Missing or invalid token.
+
+4. **GET /posts**
+   - **Description**: Retrieves all posts.
+   - **Response**:
+     - **200 OK**: List of all posts.
+
+5. **GET /posts?author=userId**
+   - **Description**: Retrieves posts by a specific author.
+   - **Query Parameters**:
+     - `author`: User ID of the author.
+   - **Response**:
+     - **200 OK**: List of posts by the specified author.
+
+#### Data Models
+
+1. **User**
+   - **Fields**:
+     - `id`: Unique identifier for the user.
+     - `email`: User's email address.
+     - `passwordHash`: Hashed password for secure storage.
+
+2. **Post**
+   - **Fields**:
+     - `id`: Unique identifier for the post.
+     - `title`: Title of the post.
+     - `content`: Content of the post.
+     - `authorId`: ID of the user who authored the post.
+     - `createdAt`: Timestamp when the post was created.
+
+#### Authentication
+
+- **JWT-based Authentication**:
+  - Implement JSON Web Token (JWT) for secure user authentication.
+  - Tokens are issued upon successful login and must be included in the Authorization header for endpoints that require authentication.
+
+- **Secure Password Storage**:
+  - Store passwords as hashed values using a strong hashing algorithm (e.g., bcrypt) to ensure security.
+
+This backend architecture ensures robust user authentication and secure handling of user data, providing a solid foundation for a web application.
