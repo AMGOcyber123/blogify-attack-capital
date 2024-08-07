@@ -57,18 +57,17 @@ backend/
 │   │   ├── authController.ts
 │   │   └── postController.ts
 │   ├── middlewares/
-│   │   └── authMiddleware.ts
+│   │   └── auth.ts
 │   ├── models/
-│   │   ├── userModel.ts
-│   │   └── postModel.ts
+│   │   ├── User.ts
+│   │   └── Post.ts
 │   ├── routes/
-│   │   ├── authRoutes.ts
-│   │   └── postRoutes.ts
+│   │   ├── auth.ts
+│   │   └── posts.ts
 │   ├── schemas/
 │   │   ├── userSchema.ts
 │   │   └── postSchema.ts
-│   ├── app.ts
-│   └── index.ts
+│   └── app.ts
 ├── .env
 ├── package.json
 └── tsconfig.json
