@@ -1,0 +1,22 @@
+project-root/
+├── src/
+│   ├── config/
+│   │   └── supabase.ts
+│   ├── controllers/
+│   │   ├── authController.ts
+│   │   └── postController.ts
+│   ├── middlewares/
+│   │   └── auth.ts
+│   ├── models/
+│   │   ├── User.ts
+│   │   └── Post.ts
+│   ├── routes/
+│   │   ├── auth.ts
+│   │   └── posts.ts
+│   ├── schemas/
+│   │   ├── userSchema.ts
+│   │   └── postSchema.ts
+│   └── app.ts
+├── .env
+├── package.json
+└── tsconfig.json
